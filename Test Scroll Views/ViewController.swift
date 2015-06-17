@@ -7,26 +7,34 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
     
+    var mapMaxHeight: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.backgroundColor = UIColor.clearColor()
-        tableView.contentInset = UIEdgeInsetsMake(view.frame.height - 60, 0, 0, 0)
+        let headerCell = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        tableView.contentInset = UIEdgeInsetsMake(map.frame.height - headerCell.frame.height, 0, 0, 0)
         tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
         tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        
+        if let nc = navigationController {
+            mapMaxHeight = view.frame.height - nc.navigationBar.frame.height
+        } else {
+            mapMaxHeight = view.frame.height
+        }
     }
     
     override func viewDidLayoutSubviews() {
         setMapHeight()
-
     }
     
     func setMapHeight() {
-        let frame = self.map.frame
-        let newHeight = 606 - (606 + tableView.contentOffset.y)
-        let newFrame = CGRectMake(0, 0, frame.width, newHeight)
-        self.map.frame = newFrame
+        let frame = map.frame
+        let newHeight = mapMaxHeight - (mapMaxHeight + tableView.contentOffset.y)
+        let newFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.width, newHeight)
+        map.frame = newFrame
     }
 
 }
