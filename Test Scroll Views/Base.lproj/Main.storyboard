@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Test_Scroll_Views" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uu8-EU-MBa">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="jsw-dK-6rg"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="eJp-Q1-guf"/>
+                                </connections>
+                            </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nUW-Uc-n7U">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uu8-EU-MBa" secondAttribute="trailing" constant="-16" id="76U-bh-Fa1"/>
+                            <constraint firstItem="nUW-Uc-n7U" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="94A-0k-SPE"/>
+                            <constraint firstItem="Uu8-EU-MBa" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="JcK-FW-sHl"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Uu8-EU-MBa" secondAttribute="bottom" id="KcD-Nv-T1q"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="nUW-Uc-n7U" secondAttribute="bottom" id="L6o-hp-4Dk"/>
+                            <constraint firstItem="Uu8-EU-MBa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="fHA-w8-ymT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nUW-Uc-n7U" secondAttribute="trailing" constant="-16" id="q8o-ow-ZXl"/>
+                            <constraint firstItem="nUW-Uc-n7U" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="zkk-M4-E16"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="nUW-Uc-n7U" id="S4Z-hv-hme"/>
+                        <outlet property="tableView" destination="Uu8-EU-MBa" id="5kL-ce-g1U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
